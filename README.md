@@ -26,7 +26,7 @@ Make sure you have the following installed on your machine:
 
     ```bash
     git clone https://github.com/papajohn-git/WebMail.client.git
-    cd Webmail.client
+    cd Webmail.Client.Angular
     ```
 
 2. Install the dependencies:
