@@ -1,4 +1,4 @@
-# WebMailClient
+# WebMail.Client
 This project is a web-based mail client application built with Angular. It provides functionalities for managing emails, tasks, and user profiles.
 
 ## Features
