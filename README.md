@@ -42,10 +42,17 @@ To start a local development server, run:
 ```bash
 ng serve
  ```
+
+## Usage
+To use WebMail, open your web browser and navigate to https://localhost:4200
+
+
 ### Screenshots
 
 Screenshots provided for a visual representation of the application’s functionality and design.
-![WebMail - Preview](Screenshots/Screenshot6.png)
+
+![Preview](Screenshots/Screenshot6.png)
+
    Description: WebMail - Preview
 
 ### Future Features
