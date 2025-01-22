@@ -1,0 +1,51 @@
+<div *ngIf="folders() as foldersList">
+  <ul class="list-group">
+    <li class="list-group-item d-flex align-items-center">
+      <mat-tooltip [matTooltip]="user()?.email">
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-angle-down"></i>
+          <span class="mx-3 text-truncate" style="max-width: 150px;">{{user()?.email}}</span>
+        </div>
+      </mat-tooltip>
+    </li>
+    <li *ngFor="let folder of folders()" class="list-group-item d-flex align-items-center cursor-pointer btn btn-light"
+      (click)="selectFolder(folder.folderName)">
+      <div class="d-flex justify-content-between w-100">
+        <div class="d-flex align-items-center">
+          <i [class]="getFolderIcon(folder.folderName)"></i>
+          <mat-tooltip [matTooltip]="folder.folderName">
+            <div class="d-flex align-items-center">
+              <span class="mx-3 text-truncate" style="max-width: 120px;">{{ folder.folderName }}</span>
+            </div>
+          </mat-tooltip>
+        </div>
+        <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu" style="border: none; background: none; cursor: pointer;"
+            *ngIf="!isSystemFolder(folder.folderName)" class="">
+            <!-- *ngIf="!isSystemFolder(folder.folderName)" class=""> -->
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="deleteFolder(folder.id)">Delete Folder</button>
+          </mat-menu>
+        </div>
+      </div>
+      <!-- <button *ngIf="!isSystemFolder(folder.folderName)" (click)="deleteFolder(folder.folderName)" class="btn btn-danger btn-sm ml-auto">Delete</button> -->
+    </li>
+    <li class="list-group-item d-flex align-items-center cursor-pointer btn btn-light" 
+    (click)="showNewFolderInput()"
+    (mouseleave)="hideNewFolderInput()">
+      <span *ngIf="!isAddingNewFolder">New Folder</span>
+      <div *ngIf="isAddingNewFolder" class="d-flex align-items-center">
+        <input type="text" 
+        [(ngModel)]="newFolderName" 
+        placeholder="Folder Name" 
+        class="form-control mx-2"
+        (blur)="copyFolderName(newFolderName)"
+        (blur)="hideNewFolderInput()"
+        >
+        <button (click)="addFolder()" class="btn btn-primary">Add</button>
+      </div>
+    </li>
+  </ul>
+</div>

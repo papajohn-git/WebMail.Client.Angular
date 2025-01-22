@@ -1,0 +1,181 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>User Profile</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="firstName" id="firstName"
+                                    placeholder="Enter your First Name">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['firstName'].touched && userProfileForm.controls['firstName'].invalid || userProfileForm.controls['firstName'].dirty">
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['firstName'].errors?.['firstName']">
+                                    <i class="fas fa-times-circle me-2"></i>First Name is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['firstName'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>First Name must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['firstName'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>First Name must be at most 100 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="lastName" id="lastName"
+                                    placeholder="Enter your Last Name">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['lastName'].touched && userProfileForm.controls['lastName'].invalid || userProfileForm.controls['lastName'].dirty">
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['lastName'].errors?.['lastName']">
+                                    <i class="fas fa-times-circle me-2"></i>Last Name is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['lastName'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Last Name must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['lastName'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Last Name must be at most 100 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber"
+                                    placeholder="Enter your Phone Number">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['phoneNumber'].touched && userProfileForm.controls['phoneNumber'].invalid || userProfileForm.controls['phoneNumber'].dirty">
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['phoneNumber'].errors?.['phoneNumber']">
+                                    <i class="fas fa-times-circle me-2"></i>Phone Number is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['phoneNumber'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Phone Number must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['phoneNumber'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Phone Number must be at most 50 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Enter your Address">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['address'].touched && userProfileForm.controls['address'].invalid || userProfileForm.controls['address'].dirty">
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['address'].errors?.['address']">
+                                    <i class="fas fa-times-circle me-2"></i>Address is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['address'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Address must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['address'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Address must be at most 50 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="city" id="city"
+                                    placeholder="Enter your City">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['city'].touched && userProfileForm.controls['city'].invalid || userProfileForm.controls['city'].dirty">
+                                <small class="text-danger" *ngIf="userProfileForm.controls['city'].errors?.['city']">
+                                    <i class="fas fa-times-circle me-2"></i>City is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['city'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>City must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['city'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>City must be at most 50 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="state" id="state"
+                                    placeholder="Enter your State">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['state'].touched && userProfileForm.controls['state'].invalid || userProfileForm.controls['state'].dirty">
+                                <small class="text-danger" *ngIf="userProfileForm.controls['state'].errors?.['state']">
+                                    <i class="fas fa-times-circle me-2"></i>State is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['state'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>State must be at least 2 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['state'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>State must be at most 50 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="zipCode" class="form-label">Zip Code</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" formControlName="zipCode" id="zipCode"
+                                    placeholder="Enter your Zip Code">
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="userProfileForm.controls['zipCode'].touched && userProfileForm.controls['zipCode'].invalid || userProfileForm.controls['zipCode'].dirty">
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['zipCode'].errors?.['zipCode']">
+                                    <i class="fas fa-times-circle me-2"></i>Zip Code is required</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['zipCode'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Zip Code must be at least 5 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="userProfileForm.controls['zipCode'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Zip Code must be at most 10 characters
+                                    long.</small>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="userProfileForm.invalid">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="apiResponse?.success" class="mt-3">
+                <div class="alert alert-success">
+                    <span class="text-success">
+                        <i class="fas fa-check-circle me-2"></i>Success!</span>
+                    {{ apiResponse?.message }}
+                </div>
+                <div class="d-grid">
+                    <button [routerLink]="['/home']" class="btn btn-secondary btn-lg mt-3">
+                        <i class="fa-house fa-solid"></i> Go to Home Page
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="apiResponse?.success === false" class="alert alert-danger mt-3">
+                <span class="text-danger">
+                    <i class="fas fa-times-circle me-2"></i>Error!</span>
+                {{ apiResponse?.message }}
+            </div>
+        </div>
+    </div>
+</div>

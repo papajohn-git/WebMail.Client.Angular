@@ -1,0 +1,8 @@
+<div *ngIf="mail">
+  <h3>{{ mail.subject }}</h3>
+  <p><strong>From:</strong> {{ mail.senderEmail }}</p>
+  <p><strong>To:</strong> {{ mail.recipients }}</p>
+  <p><strong>Subject:</strong> {{ mail.subject }}</p>
+  <p><strong>Date:</strong> {{ mail.sendAt | date: 'short' }}</p>
+  <p>{{ mail.body }}</p>
+</div>

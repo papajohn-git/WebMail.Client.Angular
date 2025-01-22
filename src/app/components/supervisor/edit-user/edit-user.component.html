@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-primary text-white">
+                    <h2 class="mb-0">Edit User</h2>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" [(ngModel)]="userDetails.email" name="email" required *ngIf="userDetails">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="userRole">User Role</label>
+                            <input type="text" id="userRole" class="form-control" [(ngModel)]="userDetails.userRole" name="userRole" required *ngIf="userDetails">
+                            <!-- <select id="userRole" formControlName="userRole" class="form-control" [(ngModel)]="userDetails!.userRole" name="userRole">
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                              </select> -->
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-secondary me-2" (click)="goBack()">Back</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

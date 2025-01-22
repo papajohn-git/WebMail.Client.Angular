@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <button class="btn btn-primary mb-3 w-100" [routerLink]="['/mail/new-mail']">New Mail</button>
+          <app-folder-list (folderSelected)="onFolderSelected($event)"></app-folder-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9" *ngIf="selectedFolderName() as folderName">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title">{{ folderName }}</h2>
+              <app-email-list [folderName]="folderName" (mailSelected)="onMailSelected($event)"></app-email-list>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" *ngIf="selectedMail() as mail">
+          <div class="card shadow-sm email-preview">
+            <div class="card-body">
+              <app-email-preview [mail]="mail"></app-email-preview>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-primary text-white">
+                    <h2 class="mb-0">User Details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>Email:</strong> {{ userDetails?.email }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>First Name:</strong> {{ userDetails?.firstName }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Last Name:</strong> {{ userDetails?.lastName }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>Phone Number:</strong> {{ userDetails?.phoneNumber }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Address:</strong> {{ userDetails?.address }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>City:</strong> {{ userDetails?.city }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>State:</strong> {{ userDetails?.state }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>Zip Code:</strong> {{ userDetails?.zipCode }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>User Role:</strong> {{ userDetails?.userRole }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>Created At:</strong> {{ userDetails?.userCreatedAt | date: 'short' }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Updated At:</strong> {{ userDetails?.userUpdatedAt | date: 'short' }}
+                        </div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-md-6">
+                            <strong>Profile Created At:</strong> {{ userDetails?.userProfileCreatedAt | date: 'short' }}
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Profile Updated At:</strong> {{ userDetails?.userProfileUpdatedAt | date: 'short' }}
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-secondary" (click)="goBack()">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

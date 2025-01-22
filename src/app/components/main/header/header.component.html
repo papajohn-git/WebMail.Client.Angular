@@ -1,0 +1,18 @@
+<nav class="navbar bg-primary" data-bs-theme="dark">
+    <div class="navbar-brand ps-3">Mailer App</div>
+    @if(user())
+    {
+        <span class="me-3 d-flex gap-2 text-light">
+            Welcome, {{ user()?.email }}
+            <button (click)="logout()" style="border: none; background: none; cursor: pointer;">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu" style="border: none; background: none; cursor: pointer;">
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/user-profile']">Update User Profile</button>
+            </mat-menu>
+        </span>
+    }
+</nav>

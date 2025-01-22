@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">New Email</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-chip-list w-100" appearance="outline">
+              <mat-label>Recipients <span class="text-danger">*</span></mat-label>
+              <mat-chip-grid #chipGrid aria-label="Selected recipients">
+                <mat-chip-row *ngFor="let recipient of selectedRecipients(); trackBy: trackByFn"
+                  (removed)="removeRecipient(recipient)">
+                  {{recipient.fullName}} ({{recipient.email}})
+                  <button matChipRemove [attr.aria-label]="'remove ' + recipient.name">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip-row>
+                <input placeholder="Search recipients..." [formControl]="emailControl" [matAutocomplete]="auto"
+                  [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="true" required />
+              </mat-chip-grid>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let recipient of filteredRecipients | async" [value]="recipient.email"
+                  (onSelectionChange)="addRecipient(recipient)">
+                  {{recipient.fullName}} ({{recipient.email}})
+                  <!-- <button mat-button (click)="addRecipient(recipient)">Add</button> -->
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="!isFormValid">At least one recipient is required</mat-error>
+            </mat-form-field>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" [(ngModel)]="newMail.subject" name="subject"
+                placeholder="Enter subject" (focus)="clearRecipientInput()">
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <textarea class="form-control" id="body" rows="10" [(ngModel)]="newMail.body" name="body"
+                placeholder="Enter email body" (focus)="clearRecipientInput()"></textarea>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg" [disabled]="!isFormValid">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

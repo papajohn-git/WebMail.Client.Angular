@@ -1,0 +1,42 @@
+@if(user())
+{
+<div class="justify-content-center align-items-center">
+    <div class="text-center p-4 bg-white rounded shadow">
+        <h1 class="display-4 mb-4">Welcome, {{user()?.email}}</h1>
+        <p class="lead mb-4">Welcome to Client Mail, your one-stop solution for
+            managing all your emails and tasks efficiently. With our intuitive
+            interface, you can easily keep track of your communications and to-do lists,
+            ensuring you never miss an important message or deadline..</p>
+        <p class="lead mb-4">Get started now and experience the
+            convenience of having everything you need in one place.</p>
+        <button [routerLink]="['/mail']" class="btn btn-primary btn-lg me-2">
+            <i class="fas fa-envelope mr-2"></i> Mail
+        </button>
+        <button [routerLink]="['/todo']" class="btn btn-success btn-lg">
+            <i class="fas fa-tasks mr-2"></i> To-Do
+        </button>
+    </div>
+</div>
+}
+@else
+{
+<div class="justify-content-center align-items-center">
+    <div class="text-center p-4 bg-white rounded shadow">
+        <h1 class="display-4 mb-4">Welcome to Our Custom Mail Client App</h1>
+        <p class="lead mb-4">Experience the best of both worlds with our integrated
+            mail client and to-do app. Manage your emails and tasks seamlessly in one
+            place. Stay organized, stay productive, and never miss a beat with
+            our powerful features designed to make your life easier.</p>
+        <p class="lead mb-4">Join us today and start enjoying our amazing features
+            and benefits. Whether you need to keep track of your emails or manage your
+            daily tasks, our app has got you covered. Sign up now to get started or
+            log in to continue your journey with us!</p>
+        <button routerLink="register" class="btn btn-primary btn-lg me-2">
+            <i class="fas fa-user-plus"></i> Register
+        </button>
+        <button routerLink="signin" class="btn btn-secondary btn-lg">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+    </div>
+</div>
+}

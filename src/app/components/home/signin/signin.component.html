@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Sign-in</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" formControlName="email" id="email"
+                                        placeholder="Enter your email">
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="signinForm.controls['email'].touched && signinForm.controls['email'].invalid || signinForm.controls['email'].dirty">
+                                    <small class="text-danger"
+                                        *ngIf="signinForm.controls['email'].errors?.['required']">
+                                        <i class="fas fa-times-circle me-2"></i>Email is required</small>
+                                    <!-- <small class="text-danger"
+                                        *ngIf="signinForm.controls['email'].errors?.['minlength']">
+                                        <i class="fas fa-times-circle me-2"></i>Email must be at least 5 characters
+                                        long.</small>
+                                    <small class="text-danger"
+                                        *ngIf="signinForm.controls['email'].errors?.['maxlength']">
+                                        <i class="fas fa-times-circle me-2"></i>Email must be at most 50 characters
+                                        long.</small> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="password" id="password"
+                                placeholder="Enter your password">
+                            <div class="text-danger"
+                                *ngIf="signinForm.controls['password'].touched && signinForm.controls['password'].invalid || signinForm.controls['password'].dirty">
+                                <small class="text-danger" *ngIf="signinForm.controls['password'].errors?.['required']">
+                                    <i class="fas fa-times-circle me-2"></i>Email is required</small>
+                                <!-- <small class="text-danger"
+                                    *ngIf="signinForm.controls['password'].errors?.['minlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Email must be at least 5 characters
+                                    long.</small>
+                                <small class="text-danger"
+                                    *ngIf="signinForm.controls['password'].errors?.['maxlength']">
+                                    <i class="fas fa-times-circle me-2"></i>Email must be at most 10 characters
+                                    long.</small> -->
+                            </div>
+                        </div>
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-primary btn-block"
+                                [disabled]="signinForm.invalid">Submit</button>
+                        </div>
+                    </form>
+                    @if (invalidLogin){
+                    <div class="alert alert-danger mt-3">
+                        <strong>Error:</strong> Invalid email or paswword
+                    </div>
+                    }
+                    <!-- <div *ngIf="invalidLogin" class="alert alert-danger mt-3"></div>
+                            <strong>Error:</strong> Invalid email or paswword
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>

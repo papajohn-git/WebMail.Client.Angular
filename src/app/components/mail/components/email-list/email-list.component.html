@@ -1,0 +1,35 @@
+<div class="" *ngIf="emails() as emailList">
+  <ul class="list-group">
+    <li *ngFor="let mail of emailList" class="list-group-item cursor-pointer">
+      <div class="d-flex justify-content-between">
+        <div (click)="onMailSelected(mail.guidMail)" class="btn btn-light w-100">
+          <div>{{ mail.subject }}</div>
+          <div>{{ mail.sendAt | date: 'short' }}</div>
+          <div class="d-inline-block text-muted text-truncate" style="max-width: 150px;">{{mail.body}}</div>
+        </div>
+        <div *ngIf="folderName !== 'Sent Items'">
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="btn btn-light"
+            style="border: none; background: none; cursor: pointer;">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="moveMenu">
+              Move to
+            </button>
+            <mat-menu #moveMenu="matMenu">
+              <button mat-menu-item *ngFor="let folder of nonSystemFolders()"
+                (click)="moveToFolder(mail.guidMail, folder.folderName)">
+                {{ folder.folderName }}
+              </button>
+            </mat-menu>
+            <button mat-menu-item *ngIf="folderName !== 'Deleted Items'"
+              (click)="moveToFolder(mail.guidMail, 'Deleted Items')">
+              Delete
+            </button>
+          </mat-menu>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>
