@@ -44,7 +44,7 @@ ng serve
  ```
 
 ## Usage
-To use WebMail, open your web browser and navigate to https://localhost:4200
+To use WebMail, open your web browser and navigate to http://localhost:4200
 
 
 ### Screenshots
